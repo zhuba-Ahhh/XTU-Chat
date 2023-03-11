@@ -33,7 +33,7 @@
 
 ### 数据库表结构设计
 
-![](./assets/database.png)
+![database](./assets/database.png)
 
 ### 环境配置
 
@@ -50,11 +50,11 @@ npm i
 npm run serve
 ```
 
-2. mysql配置<br>
-如果mysql连不上并报错error: ER_NOT_SUPPORTED_AUTH_MODE， 是mysql版本不兼容导致，参考这篇文章<https://blog.csdn.net/qq_41831345/article/details/83150502<br>>
+2.mysql配置
+如果mysql连不上并报错error: ER_NOT_SUPPORTED_AUTH_MODE， 是mysql版本不兼容导致，参考[这篇文章](https://blog.csdn.net/qq_41831345/article/details/83150502)
 数据库没有sql脚本，直接改后端`app.module.ts`中的数据库密码，新建个`chat`数据库了就行
 
-3. 后端项目
+3.后端项目
 
 ```js
 cd genal-chat-server
