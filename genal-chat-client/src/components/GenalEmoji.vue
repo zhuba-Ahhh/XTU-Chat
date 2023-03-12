@@ -114,13 +114,31 @@ export default class GenalEmoji extends Vue {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
   .emoji-content-item {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: nowrap;
+
     span {
       cursor: pointer;
     }
   }
+}
+
+span {
+  transition: All 0.5s linear;
+  -webkit-transition: All 0.5s linear;
+  -moz-transition: All 0.5s linear;
+  -o-transition: All 0.5s linear;
+  display: inline-block;
+}
+
+span:hover {
+  transform: rotate(360deg) scale(1.2);
+  -webkit-transform: rotate(360deg) scale(1.2);
+  -moz-transform: rotate(360deg) scale(1.2);
+  -o-transform: rotate(360deg) scale(1.2);
+  -ms-transform: rotate(360deg) scale(1.2);
 }
 </style>

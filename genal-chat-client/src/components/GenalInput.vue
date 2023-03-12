@@ -26,16 +26,8 @@
         <img src="~@/assets/add.svg" alt="add" />
       </div>
     </a-popover>
-    <a-input
-      autocomplete="off"
-      type="text"
-      placeholder="say hello..."
-      v-model="text"
-      ref="input"
-      autoFocus
-      style="color:#000;"
-      @pressEnter="throttle(preSendMessage)"
-    />
+    <a-input autocomplete="off" type="text" placeholder="say hello..." v-model="text" ref="input" autoFocus
+      style="color:#000;" @pressEnter="throttle(preSendMessage)" />
     <img class="message-input-button" @click="throttle(preSendMessage)" src="~@/assets/send.png" alt="" />
   </div>
 </template>
@@ -279,15 +271,31 @@ export default class GenalInput extends Vue {
   position: absolute;
   width: 100%;
   bottom: 0px;
+
   input {
     height: 40px;
   }
+
   .message-input-button {
     width: 30px;
     cursor: pointer;
     position: absolute;
     right: 10px;
     top: 4px;
+
+    transition: All 0.5s linear;
+    -webkit-transition: All 0.5s linear;
+    -moz-transition: All 0.5s linear;
+    -o-transition: All 0.5s linear;
+    display: inline-block;
+
+    &:hover {
+      transform: rotate(360deg) scale(1.2);
+      -webkit-transform: rotate(360deg) scale(1.2);
+      -moz-transform: rotate(360deg) scale(1.2);
+      -o-transform: rotate(360deg) scale(1.2);
+      -ms-transform: rotate(360deg) scale(1.2);
+    }
   }
 }
 
@@ -295,6 +303,7 @@ export default class GenalInput extends Vue {
 .ant-input {
   padding: 0 50px 0 50px;
 }
+
 // 消息工具样式
 .messagte-tool-icon {
   position: absolute;
@@ -313,31 +322,50 @@ export default class GenalInput extends Vue {
 
   img {
     width: 60%;
+    transition: All 0.5s linear;
+    -webkit-transition: All 0.5s linear;
+    -moz-transition: All 0.5s linear;
+    -o-transition: All 0.5s linear;
+    display: inline-block;
+  }
+
+  img:hover {
+    transform: rotate(360deg) scale(1.2);
+    -webkit-transform: rotate(360deg) scale(1.2);
+    -moz-transform: rotate(360deg) scale(1.2);
+    -o-transform: rotate(360deg) scale(1.2);
+    -ms-transform: rotate(360deg) scale(1.2);
   }
 }
+
 .message-tool-item {
   width: 0px;
   height: 240px;
   cursor: pointer;
   display: flex;
   justify-items: center;
+
   .message-tool-contant {
     width: 50px;
     padding: 5px;
     border-radius: 5px;
     transition: all linear 0.2s;
+
     .message-tool-item-img {
       width: 40px;
     }
+
     .message-tool-item-text {
       text-align: center;
       font-size: 10px;
     }
+
     &:hover {
       background: rgba(135, 206, 235, 0.6);
     }
   }
 }
+
 .message-tool-video {
   margin-left: 5px;
   height: 68px;

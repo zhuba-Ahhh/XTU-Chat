@@ -2,14 +2,8 @@
   <div class="active">
     <div v-if="type === 'group'">
       <a-icon type="team" @click="toggleGroupUser" class="active-button" :class="{ heightLight: showGroupUser }" />
-      <a-drawer
-        placement="right"
-        :closable="false"
-        :visible="showGroupUser"
-        :get-container="getElement"
-        @close="toggleGroupUser"
-        :wrap-style="{ position: 'absolute' }"
-      >
+      <a-drawer placement="right" :closable="false" :visible="showGroupUser" :get-container="getElement"
+        @close="toggleGroupUser" :wrap-style="{ position: 'absolute' }">
         <div class="active-content" v-if="activeGroupUser[activeRoom.groupId]">
           <div class="actiev-content-title">群聊管理</div>
           <div class="active-content-sum">在线人数: {{ activeNum }}</div>
@@ -95,6 +89,7 @@ export default class GenalActive extends Vue {
   right: 0;
   z-index: 100;
   border-radius: 0 0 5px 5px;
+
   .active-button {
     position: absolute;
     z-index: 999;
@@ -102,14 +97,31 @@ export default class GenalActive extends Vue {
     right: 20px;
     font-size: 25px;
     cursor: pointer;
+
+    transition: All 0.5s linear;
+    -webkit-transition: All 0.5s linear;
+    -moz-transition: All 0.5s linear;
+    -o-transition: All 0.5s linear;
+    display: inline-block;
+
     &:active {
       color: skyblue;
     }
+
+    &:hover {
+      transform: rotate(360deg) scale(1.2);
+      -webkit-transform: rotate(360deg) scale(1.2);
+      -moz-transform: rotate(360deg) scale(1.2);
+      -o-transform: rotate(360deg) scale(1.2);
+      -ms-transform: rotate(360deg) scale(1.2);
+    }
   }
+
   .active-button.heightLight {
     color: skyblue;
   }
 }
+
 ::-webkit-scrollbar {
   display: none !important;
 }

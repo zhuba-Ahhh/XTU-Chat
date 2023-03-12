@@ -4,7 +4,8 @@
       <div slot="content" class="avatar-card">
         <a-avatar :size="60" :src="userGather[data.userId].avatar" />
         <div>{{ userGather[data.userId].username }}</div>
-        <a-button v-if="user.role === 'admin'" style="margin-bottom: 5px;" @click="deleteUser(data.userId)" type="primary">
+        <a-button v-if="user.role === 'admin'" style="margin-bottom: 5px;" @click="deleteUser(data.userId)"
+          type="primary">
           删除用户
         </a-button>
         <a-button @click="_setActiveRoom(data.userId)" type="primary" v-if="friendGather[data.userId]">进入私聊</a-button>
@@ -70,26 +71,61 @@ export default class GenalAvatar extends Vue {
   display: flex;
   align-items: center;
   height: 37px;
+
+  img {
+    transition: All 0.5s linear;
+    -webkit-transition: All 0.5s linear;
+    -moz-transition: All 0.5s linear;
+    -o-transition: All 0.5s linear;
+    display: inline-block;
+  }
+
+  img:hover {
+    transform: rotate(360deg) scale(1.2);
+    -webkit-transform: rotate(360deg) scale(1.2);
+    -moz-transform: rotate(360deg) scale(1.2);
+    -o-transform: rotate(360deg) scale(1.2);
+    -ms-transform: rotate(360deg) scale(1.2);
+  }
+
   .avatar-img {
     cursor: pointer;
     width: 35px;
     height: 35px;
+
+    transition: All 0.5s linear;
+    -webkit-transition: All 0.5s linear;
+    -moz-transition: All 0.5s linear;
+    -o-transition: All 0.5s linear;
+    display: inline-block;
+
+    &:hover {
+      transform: rotate(360deg) scale(1.2);
+      -webkit-transform: rotate(360deg) scale(1.2);
+      -moz-transform: rotate(360deg) scale(1.2);
+      -o-transform: rotate(360deg) scale(1.2);
+      -ms-transform: rotate(360deg) scale(1.2);
+    }
   }
+
   .avatar-name {
     margin-left: 5px;
   }
+
   .avatar-time {
     font-size: 12px;
     color: rgb(255, 255, 255, 0.75);
     margin-left: 3px;
   }
 }
+
 .avatar-card {
   display: flex;
   font-size: 18px;
   flex-direction: column;
   align-items: center;
-  > div {
+
+  >div {
     margin: 4px;
   }
 }

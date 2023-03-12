@@ -1,15 +1,8 @@
 <template>
   <div class="search">
     <div class="search-select">
-      <a-select
-        show-search
-        placeholder="搜索聊天组"
-        :default-active-first-option="false"
-        :show-arrow="false"
-        :filter-option="false"
-        :not-found-content="null"
-        @search="handleSearch"
-      >
+      <a-select show-search placeholder="搜索聊天组" :default-active-first-option="false" :show-arrow="false"
+        :filter-option="false" :not-found-content="null" @search="handleSearch">
         <a-select-option v-for="(chat, index) in searchData" :key="index" @click="selectChat(chat)">
           <div v-if="chat.username">{{ chat.username }}</div>
           <div v-if="chat.groupName">{{ chat.groupName }}</div>
@@ -40,17 +33,9 @@
     </a-modal>
     <a-modal v-model="visibleJoinGroup" footer="" title="搜索群">
       <div style="display:flex" v-if="visibleJoinGroup">
-        <a-select
-          show-search
-          placeholder="请输入群名字"
-          style="width: 90%"
-          :default-active-first-option="false"
-          :show-arrow="false"
-          :filter-option="false"
-          :not-found-content="null"
-          @search="handleGroupSearch"
-          @change="handleGroupChange"
-        >
+        <a-select show-search placeholder="请输入群名字" style="width: 90%" :default-active-first-option="false"
+          :show-arrow="false" :filter-option="false" :not-found-content="null" @search="handleGroupSearch"
+          @change="handleGroupChange">
           <a-select-option v-for="(group, index) in groupArr" :key="index" @click="handleGroupSelect(group)">
             <div>{{ group.groupName }}</div>
           </a-select-option>
@@ -60,17 +45,9 @@
     </a-modal>
     <a-modal v-model="visibleAddFriend" footer="" title="搜索用户">
       <div style="display:flex" v-if="visibleAddFriend">
-        <a-select
-          show-search
-          placeholder="请输入用户名"
-          style="width: 90%"
-          :default-active-first-option="false"
-          :show-arrow="false"
-          :filter-option="false"
-          :not-found-content="null"
-          @search="handleUserSearch"
-          @change="handleUserChange"
-        >
+        <a-select show-search placeholder="请输入用户名" style="width: 90%" :default-active-first-option="false"
+          :show-arrow="false" :filter-option="false" :not-found-content="null" @search="handleUserSearch"
+          @change="handleUserChange">
           <a-select-option v-for="(user, index) in userArr" :key="index" @click="handleUserSelect(user)">
             <div>{{ user.username }}</div>
           </a-select-option>
@@ -209,12 +186,31 @@ export default class GenalSearch extends Vue {
   padding: 10px;
   display: flex;
   align-items: center;
+
   .search-select {
     width: 100%;
+
     .ant-select {
       width: 100%;
     }
+
+    search-dropdown-button {
+      transition: All 0.5s linear;
+      -webkit-transition: All 0.5s linear;
+      -moz-transition: All 0.5s linear;
+      -o-transition: All 0.5s linear;
+      display: inline-block;
+    }
+
+    search-dropdown-button:hover {
+      transform: rotate(360deg) scale(1.2);
+      -webkit-transform: rotate(360deg) scale(1.2);
+      -moz-transform: rotate(360deg) scale(1.2);
+      -o-transform: rotate(360deg) scale(1.2);
+      -ms-transform: rotate(360deg) scale(1.2);
+    }
   }
+
   .search-dropdown {
     position: absolute;
     right: 10px;
@@ -227,6 +223,7 @@ export default class GenalSearch extends Vue {
     color: gray;
     transition: 0.2s all linear;
     border-radius: 4px;
+
     &:hover {
       background-color: skyblue;
     }

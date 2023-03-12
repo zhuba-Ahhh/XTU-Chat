@@ -1,47 +1,30 @@
 <template>
   <div class="room" v-if="chatArr.length">
     <div v-for="(chat, index) in chatArr" :key="(chat.userId || chat.groupId) + index">
-      <div
-        v-if="chat.groupId"
-        class="room-card"
-        :class="{ active: activeRoom && activeRoom.groupId === chat.groupId }"
-        @click="changeActiveRoom(chat)"
-      >
+      <div v-if="chat.groupId" class="room-card" :class="{ active: activeRoom && activeRoom.groupId === chat.groupId }"
+        @click="changeActiveRoom(chat)">
         <a-badge class="room-card-badge" :count="unReadGather[chat.groupId]" />
         <img class="room-card-type" src="~@/assets/group.png" alt="" />
         <div class="room-card-message">
           <div class="room-card-name">{{ chat.groupName }}</div>
           <div class="room-card-new" v-if="chat.messages">
-            <div
-              class="text"
-              v-text="_parseText(chat.messages[chat.messages.length - 1].content)"
-              v-if="chat.messages[chat.messages.length - 1].messageType === 'text'"
-            ></div>
+            <div class="text" v-text="_parseText(chat.messages[chat.messages.length - 1].content)"
+              v-if="chat.messages[chat.messages.length - 1].messageType === 'text'"></div>
             <div class="image" v-if="chat.messages[chat.messages.length - 1].messageType === 'image'">[图片]</div>
           </div>
         </div>
       </div>
-      <div
-        v-else
-        class="room-card"
+      <div v-else class="room-card"
         :class="{ active: activeRoom && !activeRoom.groupId && activeRoom.userId === chat.userId }"
-        @click="changeActiveRoom(chat)"
-      >
+        @click="changeActiveRoom(chat)">
         <a-badge class="room-card-badge" :count="unReadGather[chat.userId]" />
-        <img
-          class="room-card-type"
-          :src="friendGather[chat.userId].avatar"
-          :class="{ offLine: !activeUserGather.hasOwnProperty(chat.userId) }"
-          alt=""
-        />
+        <img class="room-card-type" :src="friendGather[chat.userId].avatar"
+          :class="{ offLine: !activeUserGather.hasOwnProperty(chat.userId) }" alt="" />
         <div class="room-card-message">
           <div class="room-card-name">{{ chat.username }}</div>
           <div class="room-card-new" v-if="chat.messages">
-            <div
-              class="text"
-              v-text="_parseText(chat.messages[chat.messages.length - 1].content)"
-              v-if="chat.messages[chat.messages.length - 1].messageType === 'text'"
-            ></div>
+            <div class="text" v-text="_parseText(chat.messages[chat.messages.length - 1].content)"
+              v-if="chat.messages[chat.messages.length - 1].messageType === 'text'"></div>
             <div class="image" v-if="chat.messages[chat.messages.length - 1].messageType === 'image'">[图片]</div>
           </div>
         </div>
@@ -128,6 +111,7 @@ export default class GenalRoom extends Vue {
 .room {
   height: calc(100% - 60px);
   overflow: auto;
+
   .room-card {
     position: relative;
     min-height: 70px;
@@ -138,50 +122,60 @@ export default class GenalRoom extends Vue {
     text-align: left;
     transition: all 0.2s linear;
     cursor: pointer;
+
     &:hover {
       background-color: rgb(0, 0, 0, 0.4);
     }
+
     &.active {
       background-color: rgb(0, 0, 0, 0.5);
       @include button(rgb(0, 0, 0, 0.5), '~@/assets/animate.png', 3000%, 100%, none, #fff);
       -webkit-animation: ani 2s steps(29) forwards;
       animation: ani 0.5s steps(29) forwards;
     }
+
     .room-card-badge {
       position: absolute;
       right: 10px;
       top: 10px;
+
       ::v-deep.ant-badge-count {
         box-shadow: none;
       }
     }
+
     .room-card-type {
       width: 35px;
       height: 35px;
       margin-right: 5px;
       border-radius: 50%;
       object-fit: cover;
+
       &.offLine {
         filter: grayscale(90%);
       }
     }
+
     .room-card-message {
       flex: 1;
       display: flex;
       width: 75%;
       flex-direction: column;
+
       .room-card-name {
         overflow: hidden; //超出的文本隐藏
         text-overflow: ellipsis; //溢出用省略号显示
         white-space: nowrap; //溢出不换行
       }
+
       .room-card-new {
-        > * {
+        >* {
           display: block;
           overflow: hidden; //超出的文本隐藏
           text-overflow: ellipsis; //溢出用省略号显示
           white-space: nowrap; //溢出不换行
         }
+
         color: rgb(255, 255, 255, 0.6);
         font-size: 14px;
       }
@@ -199,5 +193,21 @@ export default class GenalRoom extends Vue {
     -webkit-mask-position: 0 0;
     mask-position: 0 0;
   }
+}
+
+img {
+  transition: All 0.5s linear;
+  -webkit-transition: All 0.5s linear;
+  -moz-transition: All 0.5s linear;
+  -o-transition: All 0.5s linear;
+  display: inline-block;
+}
+
+img:hover {
+  transform: rotate(360deg) scale(1.2);
+  -webkit-transform: rotate(360deg) scale(1.2);
+  -moz-transform: rotate(360deg) scale(1.2);
+  -o-transform: rotate(360deg) scale(1.2);
+  -ms-transform: rotate(360deg) scale(1.2);
 }
 </style>
