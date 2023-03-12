@@ -1,4 +1,4 @@
-# XTUXTU-Chat
+# XTU-Chat
 
 ## 项目界面
 
