@@ -360,6 +360,10 @@ export default class GenalMessage extends Vue {
           border-radius: 5px;
           text-align: left;
           word-break: break-word;
+          img {
+            width: 100%;
+            height: auto;
+          }
         }
         .message-content-image {
           max-height: 350px;

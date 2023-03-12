@@ -107,7 +107,7 @@ export default class GenalEmoji extends Vue {
   font-size: 20px;
   width: 250px;
   // 禁止文字被鼠标选中
-  moz-user-select: -moz-none;
+  -webkit-user-select: -moz-none;
   -moz-user-select: none;
   -o-user-select: none;
   -khtml-user-select: none;

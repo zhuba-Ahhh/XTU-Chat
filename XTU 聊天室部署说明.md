@@ -31,7 +31,7 @@ http {
   #nginx请求级别配置
   server {
     listen       80;
-    server_name  www.genal.fun;
+    server_name  chatroom.zhuba.cloud;
     location / {
       root   html;
       index  index.html index.htm;

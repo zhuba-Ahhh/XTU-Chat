@@ -101,6 +101,14 @@ module.exports = {
         ws: true,
         changeOrigin: true,
       },
+      'kdcc.cn': {
+        target: Host,
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/': '/',
+        },
+      }
     },
   },
   productionSourceMap: false,

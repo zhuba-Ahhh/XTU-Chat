@@ -60,19 +60,9 @@
         <a-button type="primary" @click="changeBackground">确认</a-button>
       </div>
       <div class="tool-recommend">
-        <div
-          class="recommend"
-          @click="
-            setBackground(
-              'https://images.weserv.nl/?url=https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/23fa890c0c244db1b2d6e0927113475c~tplv-k3u1fbpfcp-zoom-1.image?imageView2/2/w/800/q/85'
-            )
-          "
-        >
-          <img
-            src="https://images.weserv.nl/?url=https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/23fa890c0c244db1b2d6e0927113475c~tplv-k3u1fbpfcp-zoom-1.image?imageView2/2/w/800/q/85"
-            alt=""
-          />
-          <span class="text">XTU</span>
+        <div class="recommend" @click="setBackground('https://cdn.jsdelivr.net/gh/zhuba-Ahhh/CDN/img/leimu.jpg')">
+          <img src="@/assets/bg5.jpg" alt="蕾姆" />
+          <span class="text">蕾姆</span>
         </div>
         <div
           class="recommend"
@@ -130,7 +120,7 @@ import { setUserAvatar } from '@/api/apis';
 import { DEFAULT_BACKGROUND, DEFAULT_GROUP } from '@/const/index';
 import { namespace } from 'vuex-class';
 import * as apis from '@/api/apis';
-import { processReturn, nameVerify, passwordVerify } from '@/utils/common.ts';
+import { processReturn, nameVerify, passwordVerify } from '@/utils/common';
 const appModule = namespace('app');
 const chatModule = namespace('chat');
 

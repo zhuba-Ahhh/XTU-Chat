@@ -21,13 +21,12 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, Prop, Watch } from 'vue-property-decorator';
+import { Component, Vue, Prop } from 'vue-property-decorator';
 import * as api from '@/api/apis';
 import { namespace } from 'vuex-class';
 const chatModule = namespace('chat');
 const appModule = namespace('app');
-import { formatTime } from '@/utils/common';
-import { processReturn } from '@/utils/common.ts';
+import { formatTime, processReturn } from '@/utils/common';
 
 @Component
 export default class GenalAvatar extends Vue {

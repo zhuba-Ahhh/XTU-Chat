@@ -3,22 +3,28 @@
     <a-popover placement="topLeft" trigger="hover" class="message-popver">
       <template slot="content">
         <a-tabs default-key="1" size="small">
-          <a-tab-pane key="1" tab="Emoji">
+          <a-tab-pane key="1" tab="Emoji 😃">
             <genal-emoji @addEmoji="addEmoji"></genal-emoji>
           </a-tab-pane>
-          <a-tab-pane key="2" tab="工具">
+          <a-tab-pane key="2" tab="Tools ⚒️">
             <div class="message-tool-item">
               <a-upload :show-upload-list="false" :before-upload="beforeImgUpload">
                 <div class="message-tool-contant">
-                  <img src="~@/assets/photo.png" class="message-tool-item-img" alt="" />
+                  <img src="~@/assets/photo.png" class="message-tool-item-img" alt="图片" />
                   <div class="message-tool-item-text">图片</div>
                 </div>
               </a-upload>
+              <div class="message-tool-video message-tool-contant" @click="videoCall">
+                <img src="~@/assets/videoCall.svg" class="message-tool-item-img" alt="视频" />
+                <div class="message-tool-item-text">视频</div>
+              </div>
             </div>
           </a-tab-pane>
         </a-tabs>
       </template>
-      <div class="messagte-tool-icon">😃</div>
+      <div class="messagte-tool-icon">
+        <img src="~@/assets/add.svg" alt="add" />
+      </div>
     </a-popover>
     <a-input
       autocomplete="off"
@@ -260,6 +266,10 @@ export default class GenalInput extends Vue {
       });
     };
   }
+
+  videoCall() {
+    console.log('video');
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -297,11 +307,20 @@ export default class GenalInput extends Vue {
   font-size: 16px;
   cursor: pointer;
   z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 60%;
+  }
 }
 .message-tool-item {
   width: 0px;
   height: 240px;
   cursor: pointer;
+  display: flex;
+  justify-items: center;
   .message-tool-contant {
     width: 50px;
     padding: 5px;
@@ -318,5 +337,9 @@ export default class GenalInput extends Vue {
       background: rgba(135, 206, 235, 0.6);
     }
   }
+}
+.message-tool-video {
+  margin-left: 5px;
+  height: 68px;
 }
 </style>
