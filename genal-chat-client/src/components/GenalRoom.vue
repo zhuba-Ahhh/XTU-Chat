@@ -35,7 +35,7 @@
           alt=""
         />
         <div class="room-card-message">
-          <div class="room-card-name">{{ chat.username }}</div>
+          <div class="room-card-name">{{ chat.username }} ({{ activeUserGather.hasOwnProperty(chat.userId) ? '在线ing' : '未在线' }})</div>
           <div class="room-card-new" v-if="chat.messages">
             <div
               class="text"
@@ -84,6 +84,10 @@ export default class GenalRoom extends Vue {
 
   get activeUserGather() {
     return this.activeGroupUser[DEFAULT_GROUP] || {};
+  }
+
+  get activeNum() {
+    return Object.keys(this.activeGroupUser[this.activeRoom.groupId] || {}).length;
   }
 
   sortChat() {
