@@ -13,25 +13,35 @@
           <div class="room-card-name">{{ chat.groupName }}</div>
           <div class="room-card-new" v-if="chat.messages">
             <div
+              v-if="chat.messages[chat.messages.length - 1].messageType === 'text'"
               class="text"
               v-text="_parseText(chat.messages[chat.messages.length - 1].content)"
-              v-if="chat.messages[chat.messages.length - 1].messageType === 'text'" >
-            </div>
+            ></div>
             <div class="image" v-if="chat.messages[chat.messages.length - 1].messageType === 'image'">[图片]</div>
           </div>
         </div>
       </div>
-      <div v-else class="room-card"
+      <div
+        v-else
+        class="room-card"
         :class="{ active: activeRoom && !activeRoom.groupId && activeRoom.userId === chat.userId }"
-        @click="changeActiveRoom(chat)">
+        @click="changeActiveRoom(chat)"
+      >
         <a-badge class="room-card-badge" :count="unReadGather[chat.userId]" />
-        <img class="room-card-type" :src="friendGather[chat.userId].avatar"
-          :class="{ offLine: !activeUserGather.hasOwnProperty(chat.userId) }" alt="" />
+        <img
+          class="room-card-type"
+          :src="friendGather[chat.userId].avatar"
+          :class="{ offLine: !activeUserGather.hasOwnProperty(chat.userId) }"
+          alt=""
+        />
         <div class="room-card-message">
           <div class="room-card-name">{{ chat.username }}</div>
           <div class="room-card-new" v-if="chat.messages">
-            <div class="text" v-text="_parseText(chat.messages[chat.messages.length - 1].content)"
-              v-if="chat.messages[chat.messages.length - 1].messageType === 'text'"></div>
+            <div
+              class="text"
+              v-text="_parseText(chat.messages[chat.messages.length - 1].content)"
+              v-if="chat.messages[chat.messages.length - 1].messageType === 'text'"
+            ></div>
             <div class="image" v-if="chat.messages[chat.messages.length - 1].messageType === 'image'">[图片]</div>
           </div>
         </div>
@@ -174,9 +184,8 @@ export default class GenalRoom extends Vue {
         text-overflow: ellipsis; //溢出用省略号显示
         white-space: nowrap; //溢出不换行
       }
-
       .room-card-new {
-        >* {
+        > * {
           display: block;
           overflow: hidden; //超出的文本隐藏
           text-overflow: ellipsis; //溢出用省略号显示
