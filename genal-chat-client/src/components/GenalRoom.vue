@@ -1,15 +1,22 @@
 <template>
   <div class="room" v-if="chatArr.length">
     <div v-for="(chat, index) in chatArr" :key="(chat.userId || chat.groupId) + index">
-      <div v-if="chat.groupId" class="room-card" :class="{ active: activeRoom && activeRoom.groupId === chat.groupId }"
-        @click="changeActiveRoom(chat)">
+      <div
+        v-if="chat.groupId"
+        class="room-card"
+        :class="{ active: activeRoom && activeRoom.groupId === chat.groupId }"
+        @click="changeActiveRoom(chat)"
+      >
         <a-badge class="room-card-badge" :count="unReadGather[chat.groupId]" />
         <img class="room-card-type" src="~@/assets/group.png" alt="" />
         <div class="room-card-message">
           <div class="room-card-name">{{ chat.groupName }}</div>
           <div class="room-card-new" v-if="chat.messages">
-            <div class="text" v-text="_parseText(chat.messages[chat.messages.length - 1].content)"
-              v-if="chat.messages[chat.messages.length - 1].messageType === 'text'"></div>
+            <div
+              class="text"
+              v-text="_parseText(chat.messages[chat.messages.length - 1].content)"
+              v-if="chat.messages[chat.messages.length - 1].messageType === 'text'" >
+            </div>
             <div class="image" v-if="chat.messages[chat.messages.length - 1].messageType === 'image'">[图片]</div>
           </div>
         </div>

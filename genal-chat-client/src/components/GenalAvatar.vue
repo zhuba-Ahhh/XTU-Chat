@@ -4,8 +4,7 @@
       <div slot="content" class="avatar-card">
         <a-avatar :size="60" :src="userGather[data.userId].avatar" />
         <div>{{ userGather[data.userId].username }}</div>
-        <a-button v-if="user.role === 'admin'" style="margin-bottom: 5px;" @click="deleteUser(data.userId)"
-          type="primary">
+        <a-button v-if="user.role === 'admin'" style="margin-bottom: 5px;" @click="deleteUser(data.userId)" type="primary">
           删除用户
         </a-button>
         <a-button @click="_setActiveRoom(data.userId)" type="primary" v-if="friendGather[data.userId]">进入私聊</a-button>
@@ -125,7 +124,7 @@ export default class GenalAvatar extends Vue {
   flex-direction: column;
   align-items: center;
 
-  >div {
+  > div {
     margin: 4px;
   }
 }

@@ -2,8 +2,14 @@
   <div class="active">
     <div v-if="type === 'group'">
       <a-icon type="team" @click="toggleGroupUser" class="active-button" :class="{ heightLight: showGroupUser }" />
-      <a-drawer placement="right" :closable="false" :visible="showGroupUser" :get-container="getElement"
-        @close="toggleGroupUser" :wrap-style="{ position: 'absolute' }">
+      <a-drawer
+        placement="right"
+        :closable="false"
+        :visible="showGroupUser"
+        :get-container="getElement"
+        @close="toggleGroupUser"
+        :wrap-style="{ position: 'absolute' }"
+      >
         <div class="active-content" v-if="activeGroupUser[activeRoom.groupId]">
           <div class="actiev-content-title">群聊管理</div>
           <div class="active-content-sum">在线人数: {{ activeNum }}</div>

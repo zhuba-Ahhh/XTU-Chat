@@ -13,9 +13,33 @@
       </div>
       <a-icon type="bulb" class="tool-tip icon" />
     </a-tooltip>
-    <a-icon type="skin" class="tool-skin icon" @click="showBackgroundModal = true" />
-    <a href="https://github.com/zhuba-Ahhh/XTU-Chat" target="_blank" class="tool-github icon"><a-icon type="github" /></a>
-    <a-icon class="tool-out icon" type="poweroff" @click="logout" />
+    <a-tooltip placement="topLeft" arrow-point-at-center >
+      <div slot="title">
+        <div>每日一图</div>
+        <div>点击切换背景为Bing每日一图</div>
+      </div>
+      <a-icon type="picture" theme="outlined" class="tool-bing icon" @click="setBackground('https://api.kdcc.cn')"/>
+    </a-tooltip>
+    <a-tooltip placement="topLeft" arrow-point-at-center >
+      <div slot="title">
+        <div>切换背景图</div>
+      </div>
+      <a-icon type="skin" class="tool-skin icon" @click="showBackgroundModal = true" />
+    </a-tooltip>
+    <a-tooltip placement="topLeft" arrow-point-at-center >
+      <div slot="title">
+        <div>GitHub仓库</div>
+      </div>
+      <a href="https://github.com/zhuba-Ahhh/XTU-Chat" target="_blank" class="tool-github icon">
+        <a-icon type="github" />
+      </a>
+    </a-tooltip>
+    <a-tooltip placement="topLeft" arrow-point-at-center >
+      <div slot="title">
+        <div>退出登入</div>
+      </div>
+      <a-icon class="tool-out icon" type="poweroff" @click="logout" />
+    </a-tooltip>
     <a-modal title="用户信息" :visible="showUserModal" footer="" @cancel="showUserModal = false">
       <div class="tool-user">
         <div @mouseover="showUpload = true" @mouseleave="showUpload = false" class="tool-user-avatar"
@@ -65,7 +89,7 @@
           setBackground('https://images.weserv.nl/?url=https://raw.githubusercontent.com/alexanderbast/vscode-snazzy/master/sample.jpg')
         ">
           <img
-            src="https://images.weserv.nl/?url=https://raw.githubusercontent.com/alexanderbast/vscode-snazzy/master/sample.jpg"
+            src="@/assets/bg1.jpg"
             alt="" />
           <span class="text">VSCode摸鱼</span>
         </div>
@@ -75,13 +99,13 @@
           )
         ">
           <img
-            src="https://images.weserv.nl/?url=https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/453b8ebcdefa46a69c620da13f346ce2~tplv-k3u1fbpfcp-zoom-1.image?imageView2/2/w/800/q/85"
+            src="@/assets/bg2.jpg"
             alt="" />
           <span class="text">山谷</span>
         </div>
         <div class="recommend"
           @click="setBackground('https://pic2.zhimg.com/v2-f76706d67343c66b08c937ec6bc42942_r.jpg?source=1940ef5c')">
-          <img src="https://pic2.zhimg.com/v2-f76706d67343c66b08c937ec6bc42942_r.jpg?source=1940ef5c" alt="" />
+          <img src="@/assets/bg3.jpg" alt="" />
           <span class="text">云朵</span>
         </div>
         <div class="recommend" @click="
@@ -90,12 +114,12 @@
           )
         ">
           <img
-            src="https://images.weserv.nl/?url=https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cc98cbc4ca284fc0aa509b12db0e325e~tplv-k3u1fbpfcp-zoom-1.image?imageView2/2/w/800/q/85"
-            alt="" />
+          src="@/assets/bg4.jpg"
+          alt="" />
           <span class="text">少女</span>
         </div>
         <div class="recommend" @click="setBackground('https://picb.zhimg.com/v2-263525f6c912d300abfa0eed3acbfd4b_r.jpg')">
-          <img src="https://picb.zhimg.com/v2-263525f6c912d300abfa0eed3acbfd4b_r.jpg" alt="" />
+          <img src="@/assets/bg6.jpg" alt="" />
           <span class="text">猫咪</span>
         </div>
       </div>
@@ -293,6 +317,10 @@ export default class GenalTool extends Vue {
   }
 
   .tool-tip {
+    bottom: 250px;
+  }
+
+  .tool-bing {
     bottom: 190px;
   }
 

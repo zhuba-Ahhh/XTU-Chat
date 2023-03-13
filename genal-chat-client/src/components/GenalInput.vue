@@ -26,8 +26,16 @@
         <img src="~@/assets/add.svg" alt="add" />
       </div>
     </a-popover>
-    <a-input autocomplete="off" type="text" placeholder="say hello..." v-model="text" ref="input" autoFocus
-      style="color:#000;" @pressEnter="throttle(preSendMessage)" />
+    <a-input
+      autocomplete="off"
+      type="text"
+      placeholder="say hello..."
+      v-model="text"
+      ref="input"
+      autoFocus
+      style="color:#000;"
+      @pressEnter="throttle(preSendMessage)"
+    />
     <img class="message-input-button" @click="throttle(preSendMessage)" src="~@/assets/send.png" alt="" />
   </div>
 </template>
