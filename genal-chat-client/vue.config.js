@@ -108,7 +108,7 @@ module.exports = {
         pathRewrite: {
           '^/': '/',
         },
-      }
+      },
     },
   },
   productionSourceMap: false,

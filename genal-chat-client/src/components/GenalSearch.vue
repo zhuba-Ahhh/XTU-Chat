@@ -1,8 +1,15 @@
 <template>
   <div class="search">
     <div class="search-select">
-      <a-select show-search placeholder="搜索聊天组" :default-active-first-option="false" :show-arrow="false"
-        :filter-option="false" :not-found-content="null" @search="handleSearch">
+      <a-select
+        show-search
+        placeholder="搜索聊天组"
+        :default-active-first-option="false"
+        :show-arrow="false"
+        :filter-option="false"
+        :not-found-content="null"
+        @search="handleSearch"
+      >
         <a-select-option v-for="(chat, index) in searchData" :key="index" @click="selectChat(chat)">
           <div v-if="chat.username">{{ chat.username }}</div>
           <div v-if="chat.groupName">{{ chat.groupName }}</div>
@@ -33,9 +40,17 @@
     </a-modal>
     <a-modal v-model="visibleJoinGroup" footer="" title="搜索群">
       <div style="display:flex" v-if="visibleJoinGroup">
-        <a-select show-search placeholder="请输入群名字" style="width: 90%" :default-active-first-option="false"
-          :show-arrow="false" :filter-option="false" :not-found-content="null" @search="handleGroupSearch"
-          @change="handleGroupChange">
+        <a-select
+          show-search
+          placeholder="请输入群名字"
+          style="width: 90%"
+          :default-active-first-option="false"
+          :show-arrow="false"
+          :filter-option="false"
+          :not-found-content="null"
+          @search="handleGroupSearch"
+          @change="handleGroupChange"
+        >
           <a-select-option v-for="(group, index) in groupArr" :key="index" @click="handleGroupSelect(group)">
             <div>{{ group.groupName }}</div>
           </a-select-option>
@@ -45,9 +60,17 @@
     </a-modal>
     <a-modal v-model="visibleAddFriend" footer="" title="搜索用户">
       <div style="display:flex" v-if="visibleAddFriend">
-        <a-select show-search placeholder="请输入用户名" style="width: 90%" :default-active-first-option="false"
-          :show-arrow="false" :filter-option="false" :not-found-content="null" @search="handleUserSearch"
-          @change="handleUserChange">
+        <a-select
+          show-search
+          placeholder="请输入用户名"
+          style="width: 90%"
+          :default-active-first-option="false"
+          :show-arrow="false"
+          :filter-option="false"
+          :not-found-content="null"
+          @search="handleUserSearch"
+          @change="handleUserChange"
+        >
           <a-select-option v-for="(user, index) in userArr" :key="index" @click="handleUserSelect(user)">
             <div>{{ user.username }}</div>
           </a-select-option>

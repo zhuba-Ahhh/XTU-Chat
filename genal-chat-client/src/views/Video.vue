@@ -1,6 +1,8 @@
 <template>
-  <video id="local" autoplay playsinline muted></video>
-  <video id="remote" autoplay playsinline></video>
+  <div>
+    <video id="local" autoplay playsinline muted></video>
+    <video id="remote" autoplay playsinline></video>
+  </div>
 </template>
 
 <script lang="ts">
@@ -8,14 +10,10 @@ import { Component, Vue } from 'vue-property-decorator';
 import 'webrtc-adapter';
 
 @Component({
-  components: {
-  },
+  components: {},
 })
 export default class GenalInput extends Vue {
-
-  mounted() {
-  }
+  mounted() {}
 }
 </script>
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
