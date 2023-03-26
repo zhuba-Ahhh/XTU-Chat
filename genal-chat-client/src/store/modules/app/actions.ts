@@ -3,7 +3,7 @@ import { ActionTree } from 'vuex';
 import { AppState } from './state';
 import { RootState } from '../../index';
 import fetch from '@/api/fetch';
-import { processReturn } from '@/utils/common.ts';
+import { processReturn } from '@/utils/common';
 
 const actions: ActionTree<AppState, RootState> = {
   async register({ commit }, payload) {
